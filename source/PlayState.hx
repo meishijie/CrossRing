@@ -88,8 +88,9 @@ class PlayState extends FlxState
 		
 		var texturepack = new SparrowData("assets/sprites.xml","assets/sprites.png");
 		_btnBack = new FlxSprite();
-		_btnBack.loadGraphicFromTexture(texturepack,true, "ui_button1.png");
-		_btnBack.centerOrigin();		
+		_btnBack.loadGraphicFromTexture(texturepack, true, "ui_start.png");
+		_btnBack.centerOrigin();	
+		_btnBack.y += 100;
 		FlxSpriteUtil.screenCenter(_btnBack);
 		//_btnBack.x -= 100;
 		_uiLayer.add(_btnBack);

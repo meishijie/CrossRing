@@ -77,8 +77,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/sprites.xml", AssetType.TEXT);
 		className.set ("assets/ui_button1.png", __ASSET__assets_ui_button1_png);
 		type.set ("assets/ui_button1.png", AssetType.IMAGE);
-		className.set ("assets/ui_button1_3x1.png", __ASSET__assets_ui_button1_3x1_png);
-		type.set ("assets/ui_button1_3x1.png", AssetType.IMAGE);
 		className.set ("assets/ui_button2.png", __ASSET__assets_ui_button2_png);
 		type.set ("assets/ui_button2.png", AssetType.IMAGE);
 		className.set ("assets/ui_button3.png", __ASSET__assets_ui_button3_png);
@@ -91,6 +89,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/ui_left.png", AssetType.IMAGE);
 		className.set ("assets/ui_right.png", __ASSET__assets_ui_right_png);
 		type.set ("assets/ui_right.png", AssetType.IMAGE);
+		className.set ("assets/ui_start.png", __ASSET__assets_ui_start_png);
+		type.set ("assets/ui_start.png", AssetType.IMAGE);
 		className.set ("assets/ui_up.png", __ASSET__assets_ui_up_png);
 		type.set ("assets/ui_up.png", AssetType.IMAGE);
 		className.set ("assets/sounds/beep.mp3", __ASSET__assets_sounds_beep_mp3);
@@ -118,10 +118,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "assets/ui_button1_3x1.png";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
 		id = "assets/ui_button2.png";
 		path.set (id, id);
 		
@@ -143,6 +139,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/ui_right.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/ui_start.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -193,9 +193,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/ui_button1.png", __ASSET__assets_ui_button1_png);
 		type.set ("assets/ui_button1.png", AssetType.IMAGE);
 		
-		className.set ("assets/ui_button1_3x1.png", __ASSET__assets_ui_button1_3x1_png);
-		type.set ("assets/ui_button1_3x1.png", AssetType.IMAGE);
-		
 		className.set ("assets/ui_button2.png", __ASSET__assets_ui_button2_png);
 		type.set ("assets/ui_button2.png", AssetType.IMAGE);
 		
@@ -213,6 +210,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/ui_right.png", __ASSET__assets_ui_right_png);
 		type.set ("assets/ui_right.png", AssetType.IMAGE);
+		
+		className.set ("assets/ui_start.png", __ASSET__assets_ui_start_png);
+		type.set ("assets/ui_start.png", AssetType.IMAGE);
 		
 		className.set ("assets/ui_up.png", __ASSET__assets_ui_up_png);
 		type.set ("assets/ui_up.png", AssetType.IMAGE);
@@ -875,13 +875,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_sprites_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_sprites_xml extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_button1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__assets_ui_button1_3x1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_button2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_button3_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_down_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_heart_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_left_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_right_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_ui_start_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_up_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_beep_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_flixel_mp3 extends flash.media.Sound { }
@@ -918,13 +918,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/sprites.png") #if display private #end class __ASSET__assets_sprites_png extends lime.graphics.Image {}
 @:file("assets/sprites.xml") #if display private #end class __ASSET__assets_sprites_xml extends lime.utils.Bytes {}
 @:image("assets/ui_button1.png") #if display private #end class __ASSET__assets_ui_button1_png extends lime.graphics.Image {}
-@:image("assets/ui_button1_3x1.png") #if display private #end class __ASSET__assets_ui_button1_3x1_png extends lime.graphics.Image {}
 @:image("assets/ui_button2.png") #if display private #end class __ASSET__assets_ui_button2_png extends lime.graphics.Image {}
 @:image("assets/ui_button3.png") #if display private #end class __ASSET__assets_ui_button3_png extends lime.graphics.Image {}
 @:image("assets/ui_down.png") #if display private #end class __ASSET__assets_ui_down_png extends lime.graphics.Image {}
 @:image("assets/ui_heart.png") #if display private #end class __ASSET__assets_ui_heart_png extends lime.graphics.Image {}
 @:image("assets/ui_left.png") #if display private #end class __ASSET__assets_ui_left_png extends lime.graphics.Image {}
 @:image("assets/ui_right.png") #if display private #end class __ASSET__assets_ui_right_png extends lime.graphics.Image {}
+@:image("assets/ui_start.png") #if display private #end class __ASSET__assets_ui_start_png extends lime.graphics.Image {}
 @:image("assets/ui_up.png") #if display private #end class __ASSET__assets_ui_up_png extends lime.graphics.Image {}
 @:file("C:/HaxeToolkit/haxe/lib/flixel/3,3,12/assets/sounds/beep.mp3") #if display private #end class __ASSET__assets_sounds_beep_mp3 extends lime.utils.Bytes {}
 @:file("C:/HaxeToolkit/haxe/lib/flixel/3,3,12/assets/sounds/flixel.mp3") #if display private #end class __ASSET__assets_sounds_flixel_mp3 extends lime.utils.Bytes {}
