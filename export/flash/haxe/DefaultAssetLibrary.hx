@@ -58,6 +58,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_arial_ttf);
 		
@@ -65,6 +71,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
+		className.set ("assets/sprites.png", __ASSET__assets_sprites_png);
+		type.set ("assets/sprites.png", AssetType.IMAGE);
+		className.set ("assets/sprites.xml", __ASSET__assets_sprites_xml);
+		type.set ("assets/sprites.xml", AssetType.TEXT);
+		className.set ("assets/ui_button1.png", __ASSET__assets_ui_button1_png);
+		type.set ("assets/ui_button1.png", AssetType.IMAGE);
+		className.set ("assets/ui_button1_3x1.png", __ASSET__assets_ui_button1_3x1_png);
+		type.set ("assets/ui_button1_3x1.png", AssetType.IMAGE);
+		className.set ("assets/ui_button2.png", __ASSET__assets_ui_button2_png);
+		type.set ("assets/ui_button2.png", AssetType.IMAGE);
+		className.set ("assets/ui_button3.png", __ASSET__assets_ui_button3_png);
+		type.set ("assets/ui_button3.png", AssetType.IMAGE);
 		className.set ("assets/ui_down.png", __ASSET__assets_ui_down_png);
 		type.set ("assets/ui_down.png", AssetType.IMAGE);
 		className.set ("assets/ui_heart.png", __ASSET__assets_ui_heart_png);
@@ -88,6 +106,30 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#elseif html5
 		
 		var id;
+		id = "assets/sprites.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/sprites.xml";
+		path.set (id, id);
+		
+		type.set (id, AssetType.TEXT);
+		id = "assets/ui_button1.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/ui_button1_3x1.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/ui_button2.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/ui_button3.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "assets/ui_down.png";
 		path.set (id, id);
 		
@@ -141,6 +183,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		
+		className.set ("assets/sprites.png", __ASSET__assets_sprites_png);
+		type.set ("assets/sprites.png", AssetType.IMAGE);
+		
+		className.set ("assets/sprites.xml", __ASSET__assets_sprites_xml);
+		type.set ("assets/sprites.xml", AssetType.TEXT);
+		
+		className.set ("assets/ui_button1.png", __ASSET__assets_ui_button1_png);
+		type.set ("assets/ui_button1.png", AssetType.IMAGE);
+		
+		className.set ("assets/ui_button1_3x1.png", __ASSET__assets_ui_button1_3x1_png);
+		type.set ("assets/ui_button1_3x1.png", AssetType.IMAGE);
+		
+		className.set ("assets/ui_button2.png", __ASSET__assets_ui_button2_png);
+		type.set ("assets/ui_button2.png", AssetType.IMAGE);
+		
+		className.set ("assets/ui_button3.png", __ASSET__assets_ui_button3_png);
+		type.set ("assets/ui_button3.png", AssetType.IMAGE);
 		
 		className.set ("assets/ui_down.png", __ASSET__assets_ui_down_png);
 		type.set ("assets/ui_down.png", AssetType.IMAGE);
@@ -812,6 +872,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if !display
 #if flash
 
+@:keep @:bind #if display private #end class __ASSET__assets_sprites_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_sprites_xml extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_ui_button1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_ui_button1_3x1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_ui_button2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_ui_button3_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_down_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_heart_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_left_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -832,6 +898,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
+
 @:keep #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
 @:keep #if display private #end class __ASSET__assets_fonts_arial_ttf extends lime.text.Font { public function new () { super (); name = "Arial"; } } 
 
@@ -843,6 +915,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux || cpp)
 
 
+@:image("assets/sprites.png") #if display private #end class __ASSET__assets_sprites_png extends lime.graphics.Image {}
+@:file("assets/sprites.xml") #if display private #end class __ASSET__assets_sprites_xml extends lime.utils.Bytes {}
+@:image("assets/ui_button1.png") #if display private #end class __ASSET__assets_ui_button1_png extends lime.graphics.Image {}
+@:image("assets/ui_button1_3x1.png") #if display private #end class __ASSET__assets_ui_button1_3x1_png extends lime.graphics.Image {}
+@:image("assets/ui_button2.png") #if display private #end class __ASSET__assets_ui_button2_png extends lime.graphics.Image {}
+@:image("assets/ui_button3.png") #if display private #end class __ASSET__assets_ui_button3_png extends lime.graphics.Image {}
 @:image("assets/ui_down.png") #if display private #end class __ASSET__assets_ui_down_png extends lime.graphics.Image {}
 @:image("assets/ui_heart.png") #if display private #end class __ASSET__assets_ui_heart_png extends lime.graphics.Image {}
 @:image("assets/ui_left.png") #if display private #end class __ASSET__assets_ui_left_png extends lime.graphics.Image {}

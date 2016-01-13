@@ -1,9 +1,13 @@
 package;
 
 import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.group.FlxGroup;
+import flixel.group.FlxSpriteGroup;
 import flixel.text.FlxText;
+import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
 import flixel.util.FlxCollision.pixelPerfectCheck;
 import flixel.util.FlxSpriteUtil; 
@@ -13,7 +17,9 @@ import flixel.tweens.FlxTween;
 import flixel.tweens.FlxTween.TweenOptions;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
-
+import flixel.util.loaders.SparrowData;
+import flixel.FlxCamera;
+import flixel.plugin.MouseEventManager;
 
 /**
  * BlendModes demo
@@ -33,7 +39,11 @@ class PlayState extends FlxState
 	private var _hitspr_r:FlxSprite;
 	private var _hitdown:FlxSprite;
 	private var _hitup:FlxSprite;
-		
+	private var _btnBack:FlxSprite;
+	private var _btnStop:FlxSprite;
+	private var _btnMenu:FlxSprite;
+	private var _uiLayer:FlxGroup;
+	
 	private var lines:FlxSprite;
 	private var GameSta:Gstate = Gstate.RUN;
 	private var _Touchstate:TouchState = runTouch;
@@ -52,6 +62,8 @@ class PlayState extends FlxState
 		_hitspr.x = FlxG.width / 2 - 50;
 		_hitspr.scale.y = 1.5;
 		add(_hitspr);
+		//_hitspr.acceleration.set(100, 0);
+		_hitspr.maxVelocity.set(100, 1000);
 		
 		lines = new FlxSprite(0, 180);
 		lines.loadGraphic("assets/ui_heart.png");
@@ -71,8 +83,34 @@ class PlayState extends FlxState
 		_hitup.loadGraphic("assets/ui_up.png");
 		add(_hitup);
 		
+		_uiLayer = new FlxGroup();
+		add(_uiLayer);
+		
+		var texturepack = new SparrowData("assets/sprites.xml","assets/sprites.png");
+		_btnBack = new FlxSprite();
+		_btnBack.loadGraphicFromTexture(texturepack,true, "ui_button1.png");
+		_btnBack.centerOrigin();		
+		FlxSpriteUtil.screenCenter(_btnBack);
+		//_btnBack.x -= 100;
+		_uiLayer.add(_btnBack);
+		
+		//_btnStop = new FlxSprite();
+		//_btnStop.loadGraphicFromTexture(texturepack, true, "ui_button2.png");
+		//_btnStop.centerOrigin();		
+		//FlxSpriteUtil.screenCenter(_btnStop);
+		//_uiLayer.add(_btnStop);
+		
+		//_btnMenu = new FlxSprite();
+		//_btnMenu.loadGraphicFromTexture(texturepack, true, "ui_button3.png");
+		//_btnMenu.centerOrigin();		
+		//FlxSpriteUtil.screenCenter(_btnMenu);
+		//_btnMenu.x += 100;
+		//_uiLayer.add(_btnMenu);
+				
+		MouseEventManager.add(_btnBack, btnBackDown);
 		FlxG.camera.antialiasing = true;
 		
+		FlxG.camera.follow(_hitspr, FlxCamera.STYLE_PLATFORMER);
 		/*var currentLoc = new FlxPoint(_hitspr.x, _hitspr.y);
 		var p1 = new FlxPoint(100, 300);
 		var p2 = new FlxPoint(200, 50);
@@ -84,14 +122,18 @@ class PlayState extends FlxState
 		
 	}
 	
+	private function btnBackDown(o:FlxObject):Void{
+		_hitspr.acceleration.x = 100;
+		trace("ok");
+	}
 	override public function update():Void 
 	{
-		_hitdown.setPosition(_hitspr.x + 22.5, _hitspr.y-30 );
-		_hitup.setPosition(_hitspr.x + 22.5,_hitspr.y+140);
-		_hitspr_r.setPosition(_hitspr.x+22.5,_hitspr.y);
+		_hitdown.setPosition(_hitspr.x + 30, _hitspr.y-30 );
+		_hitup.setPosition(_hitspr.x + 30,_hitspr.y+140);
+		_hitspr_r.setPosition(_hitspr.x+33,_hitspr.y);
 		//_hitspr.setPosition(FlxG.mouse.x, FlxG.mouse.y);
 		//GameSta = STOP;
-		if (pixelPerfectCheck(_hitdown, lines, 20) || pixelPerfectCheck(_hitup, lines, 20)) {
+		if (FlxG.pixelPerfectOverlap(_hitdown, lines,20) || FlxG.pixelPerfectOverlap(_hitup, lines, 20)) {
 			GameSta = STOP;	
 			trace("hit");
 		};
@@ -115,14 +157,17 @@ class PlayState extends FlxState
 		}
 		
 		if(_Touchstate == TouchState.noTouch){
-			_hitspr.acceleration.set(0,800);
+			_hitspr.acceleration.y = _hitspr_r.acceleration.y = _hitdown.acceleration.y = _hitup.acceleration.y = 800;
+			//_hitspr.acceleration.x = 100;
+			
 		}else if(_Touchstate == Touch){
-			_hitspr.acceleration.set(0,-800);
+			_hitspr.acceleration.y = _hitspr_r.acceleration.y = _hitdown.acceleration.y = _hitup.acceleration.y = -800;
+			//_hitspr.acceleration.x = 100;
 		}else{
-			_hitspr.acceleration.set(0,0);
+			//_hitspr.acceleration.set(0,0);
 		}
 		
-		lines.x -= 2;
+		//_hitspr.acceleration.set(500,0);
 		
 		
 	}

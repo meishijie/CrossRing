@@ -30,6 +30,34 @@ class ApplicationMain {
 		var types = [];
 		
 		
+		urls.push ("assets/sprites.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/sprites.xml");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
+		urls.push ("assets/ui_button1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/ui_button1_3x1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/ui_button2.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/ui_button3.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/ui_down.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/ui_heart.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -39,6 +67,10 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/ui_right.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/ui_up.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -127,7 +159,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "64",
+			build: "118",
 			company: "HaxeFlixel",
 			file: "BlendModes",
 			fps: 60,
@@ -144,14 +176,14 @@ class ApplicationMain {
 					depthBuffer: false,
 					display: 0,
 					fullscreen: false,
-					hardware: true,
-					height: 960,
+					hardware: false,
+					height: 640,
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: true,
 					title: "BlendModes",
 					vsync: true,
-					width: 640,
+					width: 480,
 					x: null,
 					y: null
 				},
@@ -169,7 +201,7 @@ class ApplicationMain {
 		
 		#if (js && html5)
 		#if (munit || utest)
-		openfl.Lib.embed (null, 640, 960, "FFFFFF");
+		openfl.Lib.embed (null, 480, 640, "FFFFFF");
 		#end
 		#else
 		create ();
