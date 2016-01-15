@@ -151,7 +151,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "147",
+			build: "148",
 			company: "HaxeFlixel",
 			file: "BlendModes",
 			fps: 60,
