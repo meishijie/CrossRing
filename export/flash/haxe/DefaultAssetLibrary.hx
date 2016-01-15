@@ -64,6 +64,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_arial_ttf);
 		
@@ -87,6 +88,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/ui_heart.png", AssetType.IMAGE);
 		className.set ("assets/ui_left.png", __ASSET__assets_ui_left_png);
 		type.set ("assets/ui_left.png", AssetType.IMAGE);
+		className.set ("assets/ui_reset.png", __ASSET__assets_ui_reset_png);
+		type.set ("assets/ui_reset.png", AssetType.IMAGE);
 		className.set ("assets/ui_right.png", __ASSET__assets_ui_right_png);
 		type.set ("assets/ui_right.png", AssetType.IMAGE);
 		className.set ("assets/ui_start.png", __ASSET__assets_ui_start_png);
@@ -135,6 +138,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/ui_left.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/ui_reset.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -207,6 +214,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/ui_left.png", __ASSET__assets_ui_left_png);
 		type.set ("assets/ui_left.png", AssetType.IMAGE);
+		
+		className.set ("assets/ui_reset.png", __ASSET__assets_ui_reset_png);
+		type.set ("assets/ui_reset.png", AssetType.IMAGE);
 		
 		className.set ("assets/ui_right.png", __ASSET__assets_ui_right_png);
 		type.set ("assets/ui_right.png", AssetType.IMAGE);
@@ -880,6 +890,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_ui_down_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_heart_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_left_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_ui_reset_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_right_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_start_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_up_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -890,6 +901,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
 
 
 
@@ -923,6 +935,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/ui_down.png") #if display private #end class __ASSET__assets_ui_down_png extends lime.graphics.Image {}
 @:image("assets/ui_heart.png") #if display private #end class __ASSET__assets_ui_heart_png extends lime.graphics.Image {}
 @:image("assets/ui_left.png") #if display private #end class __ASSET__assets_ui_left_png extends lime.graphics.Image {}
+@:image("assets/ui_reset.png") #if display private #end class __ASSET__assets_ui_reset_png extends lime.graphics.Image {}
 @:image("assets/ui_right.png") #if display private #end class __ASSET__assets_ui_right_png extends lime.graphics.Image {}
 @:image("assets/ui_start.png") #if display private #end class __ASSET__assets_ui_start_png extends lime.graphics.Image {}
 @:image("assets/ui_up.png") #if display private #end class __ASSET__assets_ui_up_png extends lime.graphics.Image {}
