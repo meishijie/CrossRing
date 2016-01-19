@@ -42,10 +42,6 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/ui_button1_3x1.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
 		urls.push ("assets/ui_button2.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -62,11 +58,23 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/ui_heart1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/ui_left.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/ui_reset.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/ui_right.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/ui_start.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -159,7 +167,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "118",
+			build: "270",
 			company: "HaxeFlixel",
 			file: "BlendModes",
 			fps: 60,

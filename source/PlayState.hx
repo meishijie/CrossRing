@@ -23,6 +23,7 @@ import flixel.FlxCamera;
 import flixel.plugin.MouseEventManager;
 import flixel.util.FlxTimer;
 import flixel.ui.FlxButton;
+
 /**
  * BlendModes demo
  *
@@ -50,12 +51,15 @@ class PlayState extends FlxState
 	private var _scoreStep:Int = 1;
 	private var _timestep:Int = 0;
 	private var _timestep1:Int = 0;
+	private var _lineSpeed:Float = 1.0;
 	private var _sText:FlxText;
 	private var _subsText:FlxText;
 	private var _yText:FlxText;
 	private var _bText:FlxText;
+	private var _speedtext:FlxText;
 	private var _best:String;
 	private var myButton:FlxButton;
+	private var canSpeedUp:Bool;
 	
 	private var _gameSave:FlxSave;
 	private var lines:FlxSprite;
@@ -75,6 +79,8 @@ class PlayState extends FlxState
 		if(_gameSave.data.best){
 			_best = _gameSave.data.best;
 		}	
+		_lineSpeed = Reg._lineSpeed;
+		canSpeedUp = true;
 		
 		GameSta = START;
 		
@@ -94,7 +100,7 @@ class PlayState extends FlxState
 		_hitspr.scale.y = 1.5;
 		add(_hitspr);
 		//_hitspr.acceleration.set(100, 0);
-		_hitspr.maxVelocity.set(100, 1000);
+		_hitspr.maxVelocity.set(Reg._lineSpeed, 1000);
 		
 		lines = new FlxSprite(0, 180);
 		lines.loadGraphic("assets/ui_heart.png");
@@ -151,6 +157,20 @@ class PlayState extends FlxState
 		//_bText.visible = false;		
 		_bText.text = "BEST "+_best;
 		
+		_speedtext = new FlxText(0, 0, 0, "SPEED ", 15);
+		_speedtext.color = 0xFF00B0CC;
+		_speedtext.alignment = "center";
+		_speedtext.autoSize = true;		
+		FlxSpriteUtil.screenCenter(_speedtext);
+		_speedtext.centerOrigin();
+		_speedtext.y -= 260;
+		add(_speedtext);
+		_speedtext.x = FlxG.width / 2 - _speedtext.width / 2 ;
+		_speedtext.scrollFactor.set(0,0);
+		
+		//_bText.visible = false;		
+		_speedtext.text = "SPEED "+ _lineSpeed;
+		
 		var texturepack = new SparrowData("assets/sprites.xml","assets/sprites.png");
 		_btnBack = new FlxSprite();
 		_btnBack.loadGraphicFromTexture(texturepack, true, "ui_start.png");
@@ -170,7 +190,7 @@ class PlayState extends FlxState
 	}
 	
 	private function btnBackDown(o:FlxObject):Void{
-		_hitspr.acceleration.x = 100;
+		_hitspr.acceleration.x = _lineSpeed;
 		trace("ok");
 		GameSta = RUN;
 	}
@@ -180,6 +200,8 @@ class PlayState extends FlxState
 		_bText.scrollFactor.set(0, 0);
 		_yText.x = FlxG.width / 2 - _bText.width / 2;
 		_yText.scrollFactor.set(0, 0);
+		_speedtext.x = FlxG.width / 2 - _speedtext.width / 2 ;
+		_speedtext.scrollFactor.set(0, 0);
 		
 		_subsText.x = _sText.width;
 		_hitdown.setPosition(_hitspr.x + 30, _hitspr.y-30 );
@@ -187,10 +209,16 @@ class PlayState extends FlxState
 		_hitspr_r.setPosition(_hitspr.x+33,_hitspr.y);
 		//_hitspr.setPosition(FlxG.mouse.x, FlxG.mouse.y);
 		//GameSta = STOP;
-		if (FlxG.pixelPerfectOverlap(_hitdown, lines,20) || FlxG.pixelPerfectOverlap(_hitup, lines, 20)) {
+		if (FlxG.pixelPerfectOverlap(_hitdown, lines,20) || FlxG.pixelPerfectOverlap(_hitup, lines, 20) ) {
 			GameSta = STOP;	
-			trace("hit");
+			//Reg._lineSpeed = 100;
+			//trace("hit");
 		};
+		if( lines.width +20 < _hitspr.x && canSpeedUp == true){
+			GameSta = STOP;	//win
+			Reg._lineSpeed += 20;
+			canSpeedUp = false;
+		}
 		if (FlxG.mouse.pressed)
 		{
 			// The left mouse button is currently pressed
@@ -259,6 +287,7 @@ class PlayState extends FlxState
 					}
 				}
 				
+				//_sText.text = Std.string(Reg._lineSpeed);
 				_sText.text = "Score " + _score;
 				_subsText.text = "." + _subscore;
 			}

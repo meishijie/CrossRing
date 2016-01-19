@@ -58,6 +58,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/ui_heart1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/ui_left.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -155,7 +159,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "260",
+			build: "301",
 			company: "HaxeFlixel",
 			file: "BlendModes",
 			fps: 60,
