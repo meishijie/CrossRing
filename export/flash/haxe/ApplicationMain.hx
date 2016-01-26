@@ -18,7 +18,7 @@ class ApplicationMain {
 		var app = new openfl.display.Application ();
 		app.create (config);
 		
-		var display = new flixel.system.FlxPreloader ();
+		var display = new NMEPreloader ();
 		
 		preloader = new openfl.display.Preloader (display);
 		app.setPreloader (preloader);
@@ -30,16 +30,16 @@ class ApplicationMain {
 		var types = [];
 		
 		
-		urls.push ("assets/sound/buttonStart");
-		types.push (lime.Assets.AssetType.BINARY);
+		urls.push ("assets/sound/buttonStart.wav");
+		types.push (lime.Assets.AssetType.SOUND);
 		
 		
-		urls.push ("assets/sound/hitTheLine");
-		types.push (lime.Assets.AssetType.BINARY);
+		urls.push ("assets/sound/hitTheLine.wav");
+		types.push (lime.Assets.AssetType.SOUND);
 		
 		
-		urls.push ("assets/sound/jumpUp");
-		types.push (lime.Assets.AssetType.BINARY);
+		urls.push ("assets/sound/jumpUp.wav");
+		types.push (lime.Assets.AssetType.SOUND);
 		
 		
 		urls.push ("assets/sprites.png");
@@ -171,7 +171,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "303",
+			build: "314",
 			company: "HaxeFlixel",
 			file: "BlendModes",
 			fps: 60,

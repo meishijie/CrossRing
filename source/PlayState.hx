@@ -52,6 +52,8 @@ class PlayState extends FlxState
 	private var _timestep:Int = 0;
 	private var _timestep1:Int = 0;
 	private var _lineSpeed:Float = 1.0;
+	private var _musicPlaying:Bool = false;
+	
 	private var _sText:FlxText;
 	private var _subsText:FlxText;
 	private var _yText:FlxText;
@@ -193,6 +195,7 @@ class PlayState extends FlxState
 		_hitspr.acceleration.x = _lineSpeed;
 		trace("ok");
 		GameSta = RUN;
+		FlxG.sound.play("assets/sound/buttonStart.wav");
 	}
 	override public function update():Void 
 	{
@@ -210,7 +213,8 @@ class PlayState extends FlxState
 		//_hitspr.setPosition(FlxG.mouse.x, FlxG.mouse.y);
 		//GameSta = STOP;
 		if (FlxG.pixelPerfectOverlap(_hitdown, lines,20) || FlxG.pixelPerfectOverlap(_hitup, lines, 20) ) {
-			GameSta = STOP;	
+			GameSta = STOP;			
+			
 			//Reg._lineSpeed = 100;
 			//trace("hit");
 		};
@@ -223,12 +227,20 @@ class PlayState extends FlxState
 		{
 			// The left mouse button is currently pressed
 			_Touchstate = TouchState.Touch;
+			if(_musicPlaying == false && GameSta == RUN){
+				FlxG.sound.play("assets/sound/jumpUp.wav");
+				_musicPlaying = true;
+			}
+			
 		}
 
 		if (FlxG.mouse.justReleased)
 		{
 			// The left mouse button has just been released
 			_Touchstate = TouchState.noTouch;
+			if(_musicPlaying == true){
+				_musicPlaying = false;
+			}
 		}
 		
 		super.update();
