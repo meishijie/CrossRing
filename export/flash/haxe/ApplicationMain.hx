@@ -30,6 +30,18 @@ class ApplicationMain {
 		var types = [];
 		
 		
+		urls.push ("assets/sound/buttonStart");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
+		urls.push ("assets/sound/hitTheLine");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
+		urls.push ("assets/sound/jumpUp");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
 		urls.push ("assets/sprites.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -159,7 +171,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "301",
+			build: "303",
 			company: "HaxeFlixel",
 			file: "BlendModes",
 			fps: 60,

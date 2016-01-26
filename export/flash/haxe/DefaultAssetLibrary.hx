@@ -66,6 +66,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_arial_ttf);
 		
@@ -73,6 +76,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
+		className.set ("assets/sound/buttonStart", __ASSET__assets_sound_buttonstart);
+		type.set ("assets/sound/buttonStart", AssetType.BINARY);
+		className.set ("assets/sound/hitTheLine", __ASSET__assets_sound_hittheline);
+		type.set ("assets/sound/hitTheLine", AssetType.BINARY);
+		className.set ("assets/sound/jumpUp", __ASSET__assets_sound_jumpup);
+		type.set ("assets/sound/jumpUp", AssetType.BINARY);
 		className.set ("assets/sprites.png", __ASSET__assets_sprites_png);
 		type.set ("assets/sprites.png", AssetType.IMAGE);
 		className.set ("assets/sprites.xml", __ASSET__assets_sprites_xml);
@@ -112,6 +121,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#elseif html5
 		
 		var id;
+		id = "assets/sound/buttonStart";
+		path.set (id, id);
+		
+		type.set (id, AssetType.BINARY);
+		id = "assets/sound/hitTheLine";
+		path.set (id, id);
+		
+		type.set (id, AssetType.BINARY);
+		id = "assets/sound/jumpUp";
+		path.set (id, id);
+		
+		type.set (id, AssetType.BINARY);
 		id = "assets/sprites.png";
 		path.set (id, id);
 		
@@ -197,6 +218,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		
+		className.set ("assets/sound/buttonStart", __ASSET__assets_sound_buttonstart);
+		type.set ("assets/sound/buttonStart", AssetType.BINARY);
+		
+		className.set ("assets/sound/hitTheLine", __ASSET__assets_sound_hittheline);
+		type.set ("assets/sound/hitTheLine", AssetType.BINARY);
+		
+		className.set ("assets/sound/jumpUp", __ASSET__assets_sound_jumpup);
+		type.set ("assets/sound/jumpUp", AssetType.BINARY);
 		
 		className.set ("assets/sprites.png", __ASSET__assets_sprites_png);
 		type.set ("assets/sprites.png", AssetType.IMAGE);
@@ -892,6 +922,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if !display
 #if flash
 
+@:keep @:bind #if display private #end class __ASSET__assets_sound_buttonstart extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_sound_hittheline extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_sound_jumpup extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_sprites_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_sprites_xml extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_ui_button1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -928,6 +961,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
 @:keep #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
 @:keep #if display private #end class __ASSET__assets_fonts_arial_ttf extends lime.text.Font { public function new () { super (); name = "Arial"; } } 
 
@@ -939,6 +975,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux || cpp)
 
 
+@:file("assets/sound/buttonStart") #if display private #end class __ASSET__assets_sound_buttonstart extends lime.utils.Bytes {}
+@:file("assets/sound/hitTheLine") #if display private #end class __ASSET__assets_sound_hittheline extends lime.utils.Bytes {}
+@:file("assets/sound/jumpUp") #if display private #end class __ASSET__assets_sound_jumpup extends lime.utils.Bytes {}
 @:image("assets/sprites.png") #if display private #end class __ASSET__assets_sprites_png extends lime.graphics.Image {}
 @:file("assets/sprites.xml") #if display private #end class __ASSET__assets_sprites_xml extends lime.utils.Bytes {}
 @:image("assets/ui_button1.png") #if display private #end class __ASSET__assets_ui_button1_png extends lime.graphics.Image {}
@@ -952,10 +991,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/ui_right.png") #if display private #end class __ASSET__assets_ui_right_png extends lime.graphics.Image {}
 @:image("assets/ui_start.png") #if display private #end class __ASSET__assets_ui_start_png extends lime.graphics.Image {}
 @:image("assets/ui_up.png") #if display private #end class __ASSET__assets_ui_up_png extends lime.graphics.Image {}
-@:file("C:/HaxeToolkit/haxe/lib/flixel/3,3,12/assets/sounds/beep.mp3") #if display private #end class __ASSET__assets_sounds_beep_mp3 extends lime.utils.Bytes {}
-@:file("C:/HaxeToolkit/haxe/lib/flixel/3,3,12/assets/sounds/flixel.mp3") #if display private #end class __ASSET__assets_sounds_flixel_mp3 extends lime.utils.Bytes {}
-@:font("C:/HaxeToolkit/haxe/lib/flixel/3,3,12/assets/fonts/nokiafc22.ttf") #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends lime.text.Font {}
-@:font("C:/HaxeToolkit/haxe/lib/flixel/3,3,12/assets/fonts/arial.ttf") #if display private #end class __ASSET__assets_fonts_arial_ttf extends lime.text.Font {}
+@:file("C:/Users/lanhuoyi/android/flixel/3,3,12/assets/sounds/beep.mp3") #if display private #end class __ASSET__assets_sounds_beep_mp3 extends lime.utils.Bytes {}
+@:file("C:/Users/lanhuoyi/android/flixel/3,3,12/assets/sounds/flixel.mp3") #if display private #end class __ASSET__assets_sounds_flixel_mp3 extends lime.utils.Bytes {}
+@:font("C:/Users/lanhuoyi/android/flixel/3,3,12/assets/fonts/nokiafc22.ttf") #if display private #end class __ASSET__assets_fonts_nokiafc22_ttf extends lime.text.Font {}
+@:font("C:/Users/lanhuoyi/android/flixel/3,3,12/assets/fonts/arial.ttf") #if display private #end class __ASSET__assets_fonts_arial_ttf extends lime.text.Font {}
 
 
 
